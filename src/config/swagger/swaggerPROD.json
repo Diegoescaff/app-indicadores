@@ -1,184 +1,43 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "Backend ::ShareYourIdea:: App",
+    "description": "Backend ::Indicadores:: App",
     "version": "1.0.0",
-    "title": "Swagger ShareYourIdea",
+    "title": "Swagger Indicadores",
     "contact": {
-      "email": "marluanespiritusantoguerrero@gmail.com"
-    },
-    "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      "email": "Diegoescaff@gmail.com"
     }
   },
-  "host": "localhost:5000",
-  "basePath": "/v1/api",
+  "host": "localhost:3000",
+  "basePath": "/api",
   "tags": [
     {
-      "name": "User",
-      "description": "Everything about users"
+      "name": "indicadores",
+      "description": "Controllador que obtiene indicadores desde un servicio externo"
     }
   ],
   "schemes": ["http", "https"],
   "paths": {
-    "/user": {
+    "/indicadores": {
       "get": {
-        "tags": ["User"],
-        "summary": "Finds All the Users",
+        "tags": ["indicadores"],
+        "summary": "Obtiene todos los indicadores",
         "description": "",
         "produces": ["application/json"],
         "parameters": [
-          {
-            "name": "pageNum",
-            "type": "number",
-            "in": "query",
-            "required": false
-          },
-          {
-            "name": "pageSize",
-            "type": "number",
-            "in": "query",
-            "required": false
-          }
+          
         ],
         "responses": {
           "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/User"
-              }
-            }
+            "description": "operación exitosa"
+           
           },
-          "400": {
-            "description": "Invalid status value"
-          }
-        }
-      }
-    },
-    "/user/{id}": {
-      "get": {
-        "tags": ["User"],
-        "summary": "Find one user",
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "string",
-            "description": "User Id",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/User"
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid tag value"
-          }
-        }
-      },
-      "patch": {
-        "tags": ["User"],
-        "summary": "Update one user",
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "string",
-            "description": "User Id",
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "Authorization",
-            "description": "Authorization token with admin role",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/User"
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid tag value"
-          }
-        }
-      },
-      "delete": {
-        "tags": ["User"],
-        "summary": "Delete one user",
-        "description": "",
-        "produces": ["application/json"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "string",
-            "description": "User Id",
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "Authorization",
-            "description": "Authorization token with admin role",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/User"
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid tag value"
+          "500": {
+            "description": "Error en la operación"
           }
         }
       }
     }
-  },
-  "definitions": {
-    "User": {
-      "type": "object",
-      "properties": {
-        "_id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "username": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        }
-      }
-    }
+  
   }
 }
