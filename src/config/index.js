@@ -1,9 +1,9 @@
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+// if (process.env.NODE_ENV !== "production") {
+//   require("dotenv").config();
+// }
 
 module.exports = {
-  PORT: process.env.PORT,
+  PORT: process.env.PORT || 3000,
   APPLICATION_NAME: process.env.APPLICATION_NAME,
   URL_INDICADORES: process.env.URL,
   CACHE_KEY: process.env.CACHE_KEY,
